@@ -58,6 +58,46 @@
 
 
 
+\## Sprint 2: Design System de Kalú
+
+\- \[x] Crear estructura lib/shared
+
+\- \[x] Crear theme reutilizable
+
+\- \[x] Crear constants reutilizables
+
+\- \[x] Crear utils reutilizables
+
+\- \[x] Crear AppButton
+
+\- \[x] Crear AppCard
+
+\- \[x] Crear AppTextField
+
+\- \[x] Crear AppSearchBar
+
+\- \[x] Crear AppBanner
+
+\- \[x] Crear ProductCard
+
+\- \[x] Crear CategoryChip
+
+\- \[x] Crear PriceWidget
+
+\- \[x] Crear SectionTitle
+
+\- \[x] Crear AppLoading
+
+\- \[x] Crear AppEmpty
+
+\- \[x] Crear AppError
+
+\- \[x] Crear BottomNavBar
+
+\- \[x] Crear AppScaffold
+
+
+
 \## Sprint 3: Modelos y datos mock
 
 \- \[ ] Crear CategoryModel

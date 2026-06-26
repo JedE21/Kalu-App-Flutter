@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:kalu_app/main.dart';
@@ -15,7 +16,7 @@ void main() {
     expect(find.text('Buscar tortas, cuchareables, pies...'), findsOneWidget);
     expect(find.text('Promoci\u00F3n del d\u00EDa'), findsOneWidget);
 
-    await tester.tap(find.text('Categor\u00EDas'));
+    await tester.tap(find.byIcon(Icons.category_outlined));
     await tester.pumpAndSettle();
 
     expect(
