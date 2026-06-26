@@ -8,8 +8,12 @@ Aplicación móvil para **Kalú Pastelería Casera**, desarrollada en Flutter, e
 - Android Emulator configurado.
 - Navegación base implementada.
 - Design System inicial creado.
-- Home tipo tienda online en construcción.
-- Datos mock en desarrollo.
+- Home tipo tienda online implementado con datos mock.
+- Modelos y datos mock creados.
+- Categorías y productos por categoría implementados.
+- Detalle de producto implementado.
+- Carrito local funcional implementado.
+- Checkout por WhatsApp pendiente.
 - Supabase planificado para una fase posterior.
 
 ## Tecnologías
@@ -53,7 +57,6 @@ kalu_app/
 |-- lib/
 |   |-- core/
 |   |   |-- constants/
-|   |   |-- routes/
 |   |   `-- theme/
 |   |-- data/
 |   |   |-- mock/
@@ -73,6 +76,16 @@ kalu_app/
 |-- pubspec.yaml
 |-- ROADMAP.md
 |-- TODO.md
+|-- docs/
+|   |-- PROJECT_MANUAL.md
+|   |-- DESIGN_SYSTEM.md
+|   |-- COMPONENT_LIBRARY.md
+|   |-- ARCHITECTURE.md
+|   |-- BACKEND_SUPABASE.md
+|   |-- REVIEW_CHECKLIST.md
+|   |-- DECISIONS.md
+|   |-- UI_FLOW.md
+|   `-- PROMPTS.md
 `-- README.md
 ```
 

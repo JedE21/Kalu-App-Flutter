@@ -1,334 +1,238 @@
-\# ROADMAP.md - Kalú App Flutter
+# ROADMAP.md - Kalu App Flutter
 
+## Objetivo General
 
+Desarrollar una aplicacion movil para Kalu Pasteleria Casera usando Flutter, con estilo de tienda online moderna, enfocada primero en Android y preparada para crecer con Supabase en una fase posterior.
 
-\## Objetivo general
-
-Desarrollar una aplicación móvil para Kalú Pastelería Casera usando Flutter, con estilo de tienda online moderna, enfocada primero en Android y luego preparada para crecer con Supabase.
-
-
-
-\---
-
-
-
-\## Sprint 0: Preparación del proyecto
+## Sprint 0: Preparacion Del Proyecto
 
 Objetivo: dejar el proyecto ordenado y escalable.
 
-
-
 Tareas:
 
-\- Crear estructura de carpetas.
+- Crear proyecto Flutter.
+- Verificar entorno Flutter.
+- Configurar emulador Android.
+- Crear estructura de carpetas.
+- Crear archivo de colores.
+- Crear tema visual.
+- Configurar `main.dart`.
+- Mantener app compilable.
 
-\- Crear archivo de colores.
+Estado: completado.
 
-\- Crear tema visual.
+## Sprint 1: Navegacion Base
 
-\- Configurar main.dart.
-
-\- Mantener app compilable.
-
-
-
-Estado: En proceso.
-
-
-
-\---
-
-
-
-\## Sprint 1: Navegación base
-
-Objetivo: crear la estructura principal de navegación.
-
-
+Objetivo: crear la estructura principal de navegacion.
 
 Pantallas:
 
-\- Inicio
-
-\- Categorías
-
-\- Carrito
-
-\- Pedidos
-
-\- Perfil
-
-
+- Inicio.
+- Categorias.
+- Carrito.
+- Pedidos.
+- Perfil.
 
 Debe incluir:
 
-\- Bottom Navigation Bar.
+- Bottom Navigation Bar.
+- Pantallas simples.
+- Navegacion funcional.
 
-\- Pantallas vacías simples.
+No incluir todavia:
 
-\- Navegación funcional.
+- Supabase.
+- Login.
+- Productos reales.
+- Carrito avanzado.
 
+Estado: completado.
 
+## Sprint 2: Design System De Kalu
 
-No incluir todavía:
-
-\- Productos reales.
-
-\- Supabase.
-
-\- Login.
-
-\- Carrito real.
-
-
-
-\---
-
-
-
-\## Sprint 2: Home tipo tienda online
-
-Objetivo: diseñar la pantalla principal inspirada en AliExpress/Mercado Libre, pero con estilo Kalú.
-
-
+Objetivo: crear la base visual reutilizable de la aplicacion.
 
 Debe incluir:
 
-\- Saludo inicial.
+- Colores.
+- Tema.
+- Tipografias.
+- Espaciados.
+- Radios.
+- Sombras.
+- Iconos.
+- Componentes reutilizables base.
 
-\- Buscador visual.
+Componentes esperados:
 
-\- Banner promocional.
+- `AppButton`.
+- `AppCard`.
+- `AppTextField`.
+- `AppSearchBar`.
+- `AppBanner`.
+- `ProductCard`.
+- `CategoryChip`.
+- `PriceWidget`.
+- `QuantitySelector`.
+- `SectionTitle`.
+- `AppLoading`.
+- `AppEmpty`.
+- `AppError`.
+- `BottomNavBar`.
+- `AppScaffold`.
 
-\- Categorías horizontales.
+Estado: completado.
 
-\- Sección de promociones.
+## Sprint 3: Home Tipo Tienda Online
 
-\- Sección de productos destacados.
+Objetivo: construir la pantalla Inicio con estilo comercial usando el Design System.
 
-\- Tarjetas de productos con precio.
+Debe incluir:
 
-
+- Saludo inicial.
+- Buscador visual.
+- Banner promocional.
+- Categorias horizontales.
+- Seccion de mas vendidos.
+- Seccion de promociones.
+- Tarjetas de productos con precio.
 
 Usar datos mock.
 
+Estado: completado.
 
-
-\---
-
-
-
-\## Sprint 3: Modelos y datos mock
+## Sprint 4: Modelos Y Datos Mock
 
 Objetivo: crear los modelos principales y datos de prueba.
 
-
-
 Modelos:
 
-\- ProductModel
+- `ProductModel`.
+- `CategoryModel`.
+- `PromotionModel`.
 
-\- CategoryModel
+Datos:
 
-\- PromotionModel
+- Categorias.
+- Productos.
+- Promociones.
 
+Estado: completado.
 
+## Sprint 5: Categorias Y Productos Por Categoria
 
-Categorías:
-
-\- Cuchareables
-
-\- Tortas 1/4 kg
-
-\- Tortas 1 kg
-
-\- Pies
-
-\- Bocaditos
-
-\- Promociones
-
-
-
-\---
-
-
-
-\## Sprint 4: Productos y categorías
-
-Objetivo: listar productos por categoría.
-
-
+Objetivo: listar productos por categoria.
 
 Debe incluir:
 
-\- Pantalla de categorías.
+- Pantalla de categorias.
+- Pantalla de productos filtrados.
+- Tarjetas de productos.
+- Navegacion al detalle.
 
-\- Pantalla de productos filtrados.
+Estado: completado.
 
-\- Tarjetas de productos.
+## Sprint 6: Detalle De Producto
 
-\- Navegación al detalle.
-
-
-
-\---
-
-
-
-\## Sprint 5: Detalle de producto
-
-Objetivo: mostrar información completa de cada producto.
-
-
+Objetivo: mostrar informacion completa de cada producto.
 
 Debe incluir:
 
-\- Imagen.
+- Imagen o placeholder.
+- Nombre.
+- Categoria.
+- Precio.
+- Descripcion.
+- Estado disponible.
+- Selector de cantidad.
+- Boton agregar al carrito.
+- Boton pedir por WhatsApp.
 
-\- Nombre.
+Estado: completado.
 
-\- Precio.
-
-\- Descripción.
-
-\- Cantidad.
-
-\- Botón agregar al carrito.
-
-\- Botón pedir por WhatsApp.
-
-
-
-\---
-
-
-
-\## Sprint 6: Carrito
+## Sprint 7: Carrito Local Funcional
 
 Objetivo: crear carrito local funcional.
 
-
-
 Debe incluir:
 
-\- Lista de productos agregados.
+- Lista de productos agregados.
+- Aumentar cantidad.
+- Disminuir cantidad.
+- Eliminar producto.
+- Vaciar carrito.
+- Subtotal por producto.
+- Total general.
+- Boton continuar pedido.
 
-\- Aumentar cantidad.
+Estado: completado.
 
-\- Disminuir cantidad.
-
-\- Eliminar producto.
-
-\- Subtotal.
-
-\- Total.
-
-
-
-\---
-
-
-
-\## Sprint 7: Checkout por WhatsApp
+## Sprint 8: Checkout Por WhatsApp
 
 Objetivo: generar pedido por WhatsApp.
 
-
-
 Debe incluir:
 
-\- Datos del cliente.
+- Datos del cliente.
+- Direccion o referencia.
+- Resumen del pedido.
+- Observaciones.
+- Boton enviar por WhatsApp.
 
-\- Resumen del pedido.
+No incluir todavia:
 
-\- Observaciones.
+- Pagos online.
+- Supabase.
+- Pedidos reales en backend.
 
-\- Botón enviar por WhatsApp.
+Estado: pendiente.
 
-
-
-\---
-
-
-
-\## Sprint 8: Conexión con Supabase
+## Sprint 9: Conexion Con Supabase
 
 Objetivo: reemplazar datos mock por datos reales.
 
-
-
 Debe incluir:
 
-\- Configuración Supabase.
+- Configuracion Supabase.
+- Consulta de productos.
+- Consulta de categorias.
+- Consulta de promociones.
+- Servicios y repositorios para separar backend de UI.
 
-\- Consulta de productos.
+Estado: futuro.
 
-\- Consulta de categorías.
-
-\- Consulta de promociones.
-
-
-
-\---
-
-
-
-\## Sprint 9: Pedidos reales
+## Sprint 10: Pedidos Reales
 
 Objetivo: guardar pedidos en Supabase.
 
-
-
 Debe incluir:
 
-\- Registro de pedido.
+- Registro de pedido.
+- Detalle del pedido.
+- Estado del pedido.
+- Historial basico cuando aplique.
 
-\- Detalle del pedido.
+Estado: futuro.
 
-\- Estado del pedido.
-
-
-
-\---
-
-
-
-\## Sprint 10: Perfil y autenticación
+## Sprint 11: Perfil Y Autenticacion
 
 Objetivo: agregar usuario cliente.
 
-
-
 Debe incluir:
 
-\- Login.
+- Login.
+- Registro.
+- Perfil.
+- Historial de pedidos.
 
-\- Registro.
+Estado: futuro.
 
-\- Perfil.
+## Reglas Del Roadmap
 
-\- Historial de pedidos.
-
-
-
-\---
-
-
-
-\## Reglas del roadmap
-
-\- Avanzar un sprint a la vez.
-
-\- No saltar fases.
-
-\- No conectar Supabase antes del Sprint 8.
-
-\- Mantener la app compilable después de cada sprint.
-
-\- Ejecutar flutter analyze al terminar cada sprint.
-
-\- Android es prioridad.
-
-\- iOS queda para una etapa futura.
-
+- Avanzar un sprint a la vez.
+- No saltar fases.
+- No conectar Supabase antes del Sprint 9.
+- Mantener la app compilable despues de cada sprint.
+- Ejecutar `flutter analyze` al terminar cada sprint con cambios de codigo.
+- Android es prioridad.
+- iOS queda para una etapa futura.

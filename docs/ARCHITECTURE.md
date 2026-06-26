@@ -28,6 +28,36 @@ Capas principales:
 
 Regla base: la UI debe consumir modelos, servicios o controladores preparados para ella, pero los modelos y servicios no deben depender de widgets ni pantallas.
 
+## Estructura Actual Del Proyecto
+
+```text
+lib/
+  core/
+    constants/
+    theme/
+  data/
+    models/
+    mock/
+    services/
+  presentation/
+    screens/
+      home/
+      categories/
+      products/
+      cart/
+      orders/
+      profile/
+      main/
+    widgets/
+  shared/
+    widgets/
+    theme/
+    constants/
+    utils/
+```
+
+La estructura actual mantiene la app ordenada por capas y modulos. Las rutas globales existentes viven por ahora en `shared/constants/app_routes.dart`.
+
 ## Estructura General Recomendada
 
 ```text
@@ -65,6 +95,8 @@ lib/
 ```
 
 Esta estructura puede crecer de forma gradual. No se deben crear carpetas nuevas si no existe una necesidad real.
+
+Carpetas como `core/routes`, `core/utils`, `data/repositories`, `checkout`, `search`, `favorites`, `contact` o `promotions` deben crearse solo cuando el sprint correspondiente las necesite.
 
 ## Responsabilidad De Cada Carpeta
 
