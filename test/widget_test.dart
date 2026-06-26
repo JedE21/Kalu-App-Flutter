@@ -20,17 +20,74 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.text('Aqu\u00ED se mostrar\u00E1n las categor\u00EDas de postres.'),
+      find.text('Elige una categor\u00EDa para ver los postres disponibles.'),
       findsOneWidget,
     );
+    expect(find.text('Cuchareables'), findsOneWidget);
+
+    await tester.tap(find.text('Cuchareables'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Cheesecake de Maracuy\u00E1'), findsOneWidget);
+    expect(find.text('Tres Leches'), findsOneWidget);
+    expect(find.text('Torta de Chocolate con Fudge Casero'), findsNothing);
+
+    await tester.tap(find.text('Tres Leches'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Detalle'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Cl\u00E1sico tres leches suave, dulce y fresco.'),
+      120,
+    );
+    expect(
+      find.text('Cl\u00E1sico tres leches suave, dulce y fresco.'),
+      findsOneWidget,
+    );
+    expect(find.text('Disponible'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Agregar al carrito'), 160);
+    expect(find.text('Agregar al carrito'), findsOneWidget);
+    expect(find.text('Pedir por WhatsApp'), findsOneWidget);
+
+    await tester.tap(find.byIcon(Icons.add).last);
+    await tester.pumpAndSettle();
+
+    expect(find.text('2'), findsOneWidget);
+
+    await tester.tap(find.text('Agregar al carrito'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Tres Leches agregado al carrito'), findsOneWidget);
+
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+
+    await tester.pageBack();
+    await tester.pumpAndSettle();
 
     await tester.tap(find.text('Carrito'));
     await tester.pumpAndSettle();
 
-    expect(
-      find.text('El carrito real se implementar\u00E1 m\u00E1s adelante.'),
-      findsOneWidget,
-    );
+    expect(find.text('2 producto(s) en tu pedido'), findsOneWidget);
+    expect(find.text('Tres Leches'), findsOneWidget);
+    expect(find.text('Continuar pedido'), findsOneWidget);
+    expect(find.text('S/ 16.00'), findsWidgets);
+
+    await tester.tap(find.byIcon(Icons.add).last);
+    await tester.pumpAndSettle();
+
+    expect(find.text('3 producto(s) en tu pedido'), findsOneWidget);
+    expect(find.text('S/ 24.00'), findsWidgets);
+
+    await tester.tap(find.byIcon(Icons.remove).last);
+    await tester.pumpAndSettle();
+
+    expect(find.text('2 producto(s) en tu pedido'), findsOneWidget);
+
+    await tester.tap(find.text('Vaciar'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Tu carrito est\u00E1 vac\u00EDo'), findsOneWidget);
 
     await tester.tap(find.text('Pedidos'));
     await tester.pumpAndSettle();

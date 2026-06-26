@@ -11,4 +11,5 @@ export 'bottom_nav_bar.dart';
 export 'category_chip.dart';
 export 'price_widget.dart';
 export 'product_card.dart';
+export 'quantity_selector.dart';
 export 'section_title.dart';

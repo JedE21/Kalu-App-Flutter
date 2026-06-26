@@ -1,17 +1,140 @@
-# kalu_app
+# Kalú App Flutter
 
-A new Flutter project.
+Aplicación móvil para **Kalú Pastelería Casera**, desarrollada en Flutter, enfocada primero en Android y preparada para integrarse con Supabase en una fase posterior.
 
-## Getting Started
+## Estado Actual Del Proyecto
 
-This project is a starting point for a Flutter application.
+- Proyecto Flutter creado.
+- Android Emulator configurado.
+- Navegación base implementada.
+- Design System inicial creado.
+- Home tipo tienda online en construcción.
+- Datos mock en desarrollo.
+- Supabase planificado para una fase posterior.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologías
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Flutter
+- Dart
+- Android
+- VS Code
+- Codex
+- Git
+- GitHub
+- Supabase, planificado
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Objetivo Del Proyecto
+
+Crear una aplicación móvil tipo tienda online, inspirada en apps comerciales como AliExpress, Mercado Libre o Temu, pero adaptada a una pastelería artesanal.
+
+La app busca ofrecer una experiencia visual moderna, limpia y comercial para explorar postres, revisar categorías, agregar productos al carrito y preparar pedidos de forma sencilla.
+
+## Módulos Principales
+
+- Splash
+- Home
+- Categorías
+- Productos
+- Detalle del producto
+- Carrito
+- Checkout por WhatsApp
+- Favoritos
+- Buscar
+- Perfil
+- Promociones
+- Configuración
+
+## Estructura General Del Proyecto
+
+```text
+kalu_app/
+|-- android/
+|-- ios/
+|-- lib/
+|   |-- core/
+|   |   |-- constants/
+|   |   |-- routes/
+|   |   `-- theme/
+|   |-- data/
+|   |   |-- mock/
+|   |   |-- models/
+|   |   `-- services/
+|   |-- presentation/
+|   |   |-- screens/
+|   |   `-- widgets/
+|   |-- shared/
+|   |   |-- constants/
+|   |   |-- theme/
+|   |   |-- utils/
+|   |   `-- widgets/
+|   `-- main.dart
+|-- test/
+|-- web/
+|-- pubspec.yaml
+|-- ROADMAP.md
+|-- TODO.md
+`-- README.md
+```
+
+## Cómo Ejecutar El Proyecto
+
+Verificar el entorno Flutter:
+
+```bash
+flutter doctor
+```
+
+Instalar dependencias:
+
+```bash
+flutter pub get
+```
+
+Analizar el proyecto:
+
+```bash
+flutter analyze
+```
+
+Ejecutar en Android Emulator:
+
+```bash
+flutter run -d emulator-5554
+```
+
+## Flujo De Trabajo
+
+El desarrollo se organiza por sprints pequeños y controlados. Cada sprint debe mantener la app compilable y avanzar solo el módulo definido.
+
+El flujo de trabajo recomendado es:
+
+- Revisar `ROADMAP.md` y `TODO.md`.
+- Implementar cambios pequeños y verificables.
+- Usar componentes reutilizables del Design System.
+- Ejecutar `flutter analyze` antes de cada commit.
+- Versionar avances con Git.
+- Subir cambios a GitHub.
+- Usar Codex como apoyo para implementación, revisión y documentación.
+
+## Roadmap Resumido
+
+- **V1:** App funcional con datos mock y pedido por WhatsApp.
+- **V2:** Integración con Supabase.
+- **V3:** Login, pedidos reales e historial.
+- **V4:** Notificaciones, cupones y mejoras avanzadas.
+
+## Reglas De Desarrollo
+
+- Mantener app compilable.
+- No conectar Supabase antes de la fase definida.
+- Trabajar por módulos pequeños.
+- Ejecutar `flutter analyze` antes de cada commit.
+- Usar componentes reutilizables.
+- Evitar paquetes externos innecesarios.
+- Mantener Android como prioridad inicial.
+
+## Créditos
+
+Proyecto desarrollado para **Kalú Pastelería Casera**.
+
+Autor/desarrollador: **JedE21**.
