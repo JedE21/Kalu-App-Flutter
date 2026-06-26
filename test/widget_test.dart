@@ -9,9 +9,11 @@ void main() {
     await tester.pumpWidget(const KaluApp());
 
     expect(
-      find.text('Bienvenida a Kal\u00FA Pasteler\u00EDa Casera.'),
+      find.text('Hola, \u00BFqu\u00E9 postre se te antoja hoy?'),
       findsOneWidget,
     );
+    expect(find.text('Buscar tortas, cuchareables, pies...'), findsOneWidget);
+    expect(find.text('Promoci\u00F3n del d\u00EDa'), findsOneWidget);
 
     await tester.tap(find.text('Categor\u00EDas'));
     await tester.pumpAndSettle();

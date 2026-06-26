@@ -44,17 +44,17 @@
 
 \## Sprint 2: Home tipo tienda
 
-\- \[ ] Crear saludo principal
+\- \[x] Crear saludo principal
 
-\- \[ ] Crear buscador visual
+\- \[x] Crear buscador visual
 
-\- \[ ] Crear banner promocional
+\- \[x] Crear banner promocional
 
-\- \[ ] Crear categorías horizontales
+\- \[x] Crear categorías horizontales
 
-\- \[ ] Crear productos destacados mock
+\- \[x] Crear productos destacados mock
 
-\- \[ ] Crear promociones mock
+\- \[x] Crear promociones mock
 
 
 
