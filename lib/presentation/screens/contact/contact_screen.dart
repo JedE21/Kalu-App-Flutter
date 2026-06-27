@@ -13,29 +13,29 @@ class ContactScreen extends StatelessWidget {
         children: [
           AppCard(
             backgroundColor: AppColors.softPink,
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CircleAvatar(
-                  radius: 30,
-                  backgroundColor: AppColors.white,
-                  child: Icon(AppIcons.cake, color: AppColors.primaryPink),
-                ),
-                const SizedBox(width: AppSpacing.lg),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      radius: 30,
+                      backgroundColor: AppColors.white,
+                      child: Icon(AppIcons.cake, color: AppColors.primaryPink),
+                    ),
+                    const SizedBox(width: AppSpacing.lg),
+                    Expanded(
+                      child: Text(
                         'Kal\u00FA Pasteler\u00EDa Casera',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      const SizedBox(height: AppSpacing.xs),
-                      Text(
-                        'Postres caseros, tortas y dulces para compartir.',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: AppSpacing.md),
+                Text(
+                  'Postres caseros, tortas y dulces para compartir en Ica.',
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),
@@ -86,11 +86,14 @@ class ContactScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: AppSpacing.xl),
-          AppButton(
-            label: 'Escribir por WhatsApp',
-            icon: Icons.chat_outlined,
-            expand: true,
-            onPressed: () => _showPreparedAction(context, 'WhatsApp'),
+          AppCard(
+            backgroundColor: AppColors.vanilla,
+            child: AppButton(
+              label: 'Escribir por WhatsApp',
+              icon: Icons.chat_outlined,
+              expand: true,
+              onPressed: () => _showPreparedAction(context, 'WhatsApp'),
+            ),
           ),
         ],
       ),

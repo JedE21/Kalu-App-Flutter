@@ -32,6 +32,25 @@ class _SearchScreenState extends State<SearchScreen> {
       title: 'Buscar',
       body: Column(
         children: [
+          AppCard(
+            backgroundColor: AppColors.softPink,
+            child: Row(
+              children: [
+                const CircleAvatar(
+                  backgroundColor: AppColors.white,
+                  child: Icon(AppIcons.search, color: AppColors.primaryPink),
+                ),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: Text(
+                    'Encuentra tortas, cuchareables, pies o promociones en segundos.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
           AppSearchBar(
             controller: _searchController,
             hintText: 'Buscar tortas, cuchareables, pies...',
@@ -97,6 +116,11 @@ class _SearchResults extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SectionTitle(title: '${products.length} resultado(s)'),
+                  const SizedBox(height: AppSpacing.xs),
+                  Text(
+                    'Toca un producto para ver su detalle.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   const SizedBox(height: AppSpacing.md),
                 ],
               ),

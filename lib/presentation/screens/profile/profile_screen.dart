@@ -17,29 +17,29 @@ class ProfileScreen extends StatelessWidget {
       children: [
         AppCard(
           backgroundColor: AppColors.softPink,
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CircleAvatar(
-                radius: 30,
-                backgroundColor: AppColors.white,
-                child: Icon(AppIcons.profile, color: AppColors.primaryPink),
-              ),
-              const SizedBox(width: AppSpacing.lg),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
+              Row(
+                children: [
+                  const CircleAvatar(
+                    radius: 30,
+                    backgroundColor: AppColors.white,
+                    child: Icon(AppIcons.profile, color: AppColors.primaryPink),
+                  ),
+                  const SizedBox(width: AppSpacing.lg),
+                  Expanded(
+                    child: Text(
                       'Hola, bienvenido a Kal\u00FA',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    const SizedBox(height: AppSpacing.xs),
-                    Text(
-                      'Tus postres favoritos en un solo lugar',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: AppSpacing.md),
+              Text(
+                'Tus postres favoritos, promociones, contacto y opciones de la app en un solo lugar.',
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
           ),

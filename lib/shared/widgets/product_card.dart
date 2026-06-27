@@ -37,6 +37,8 @@ class ProductCard extends StatelessWidget {
     return Material(
       color: AppColors.white,
       borderRadius: AppRadius.card,
+      elevation: 1,
+      shadowColor: AppColors.shadow,
       child: InkWell(
         onTap: onTap,
         borderRadius: AppRadius.card,

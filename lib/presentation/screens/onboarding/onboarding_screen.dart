@@ -106,7 +106,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   count: _pages.length,
                   currentIndex: _currentPage,
                 ),
-                const SizedBox(height: AppSpacing.xl),
+                const SizedBox(height: AppSpacing.lg),
                 AppButton(
                   label: _isLastPage ? 'Comenzar' : 'Siguiente',
                   icon: _isLastPage

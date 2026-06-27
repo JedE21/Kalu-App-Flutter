@@ -147,21 +147,19 @@ class _PromotionCard extends StatelessWidget {
                 const SizedBox(height: AppSpacing.sm),
                 Text(promotion.subtitle, style: textTheme.bodyMedium),
                 const SizedBox(height: AppSpacing.lg),
-                Row(
+                Wrap(
+                  spacing: AppSpacing.md,
+                  runSpacing: AppSpacing.md,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  alignment: WrapAlignment.spaceBetween,
                   children: [
                     if (promotion.price != null)
-                      Expanded(
-                        child: PriceWidget(
-                          price: promotion.price!,
-                          oldPrice: promotion.oldPrice,
-                        ),
-                      )
-                    else
-                      const Spacer(),
+                      PriceWidget(
+                        price: promotion.price!,
+                        oldPrice: promotion.oldPrice,
+                      ),
                     AppButton(
-                      label: promotion.productIds.isEmpty
-                          ? 'Ver promoci\u00F3n'
-                          : 'Ver promoci\u00F3n',
+                      label: 'Ver promoci\u00F3n',
                       icon: Icons.local_offer_outlined,
                       onPressed: onTap,
                     ),

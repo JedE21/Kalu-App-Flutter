@@ -31,17 +31,43 @@ class ProductsByCategoryScreen extends StatelessWidget {
                 return CustomScrollView(
                   slivers: [
                     SliverToBoxAdapter(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SectionTitle(title: category.name),
-                          const SizedBox(height: AppSpacing.sm),
-                          Text(
-                            category.description,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+                        child: AppCard(
+                          backgroundColor: AppColors.softPink,
+                          child: Row(
+                            children: [
+                              const CircleAvatar(
+                                backgroundColor: AppColors.white,
+                                child: Icon(
+                                  AppIcons.dessert,
+                                  color: AppColors.primaryPink,
+                                ),
+                              ),
+                              const SizedBox(width: AppSpacing.md),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      category.name,
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.titleLarge,
+                                    ),
+                                    const SizedBox(height: AppSpacing.xs),
+                                    Text(
+                                      category.description,
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.bodyMedium,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: AppSpacing.lg),
-                        ],
+                        ),
                       ),
                     ),
                     SliverGrid(

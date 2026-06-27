@@ -15,11 +15,36 @@ class CategoriesScreen extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.all(AppSpacing.lg),
         children: [
-          const SectionTitle(title: 'Categor\u00EDas'),
-          const SizedBox(height: AppSpacing.sm),
-          Text(
-            'Elige una categor\u00EDa para ver los postres disponibles.',
-            style: Theme.of(context).textTheme.bodyMedium,
+          AppCard(
+            backgroundColor: AppColors.softPink,
+            child: Row(
+              children: [
+                const CircleAvatar(
+                  backgroundColor: AppColors.white,
+                  child: Icon(
+                    AppIcons.categories,
+                    color: AppColors.primaryPink,
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Categor\u00EDas',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      const SizedBox(height: AppSpacing.xs),
+                      Text(
+                        'Elige una l\u00EDnea de postres y descubre opciones para tu pedido.',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: AppSpacing.lg),
           for (final category in mockCategories) ...[

@@ -27,19 +27,41 @@ class CartScreen extends StatelessWidget {
 
           return ListView(
             children: [
-              Row(
-                children: [
-                  const Expanded(child: SectionTitle(title: 'Carrito')),
-                  TextButton.icon(
-                    onPressed: cart.clear,
-                    icon: const Icon(Icons.delete_sweep_outlined),
-                    label: const Text('Vaciar'),
-                  ),
-                ],
-              ),
-              Text(
-                '${cart.totalItems} producto(s) en tu pedido',
-                style: Theme.of(context).textTheme.bodyMedium,
+              AppCard(
+                backgroundColor: AppColors.softPink,
+                child: Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundColor: AppColors.white,
+                      child: Icon(AppIcons.cart, color: AppColors.primaryPink),
+                    ),
+                    const SizedBox(width: AppSpacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Carrito',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          const SizedBox(height: AppSpacing.xs),
+                          Text(
+                            '${cart.totalItems} producto(s) en tu pedido',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
+                    ),
+                    TextButton.icon(
+                      onPressed: cart.clear,
+                      icon: const Icon(Icons.delete_sweep_outlined),
+                      label: const Text('Vaciar'),
+                      style: TextButton.styleFrom(
+                        foregroundColor: AppColors.error,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: AppSpacing.lg),
               for (final item in cart.items) ...[
@@ -67,6 +89,7 @@ class _CartItemCard extends StatelessWidget {
     final product = item.product;
 
     return AppCard(
+      backgroundColor: AppColors.vanilla,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -169,9 +192,7 @@ class _CartSummary extends StatelessWidget {
             expand: true,
             onPressed: () {
               Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (_) => const CheckoutScreen(),
-                ),
+                MaterialPageRoute<void>(builder: (_) => const CheckoutScreen()),
               );
             },
           ),

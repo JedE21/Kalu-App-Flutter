@@ -44,7 +44,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               children: [
                 Text(
                   product.categoryName,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: AppColors.primaryPink,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const SizedBox(height: AppSpacing.xs),
                 Text(
@@ -94,19 +97,26 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
           ),
           const SizedBox(height: AppSpacing.lg),
-          AppButton(
-            label: 'Agregar al carrito',
-            icon: AppIcons.cart,
-            expand: true,
-            onPressed: product.isAvailable ? _addToCart : null,
-          ),
-          const SizedBox(height: AppSpacing.md),
-          AppButton(
-            label: 'Pedir por WhatsApp',
-            icon: Icons.chat_outlined,
-            variant: AppButtonVariant.outline,
-            expand: true,
-            onPressed: product.isAvailable ? () {} : null,
+          AppCard(
+            backgroundColor: AppColors.vanilla,
+            child: Column(
+              children: [
+                AppButton(
+                  label: 'Agregar al carrito',
+                  icon: AppIcons.cart,
+                  expand: true,
+                  onPressed: product.isAvailable ? _addToCart : null,
+                ),
+                const SizedBox(height: AppSpacing.md),
+                AppButton(
+                  label: 'Pedir por WhatsApp',
+                  icon: Icons.chat_outlined,
+                  variant: AppButtonVariant.outline,
+                  expand: true,
+                  onPressed: product.isAvailable ? () {} : null,
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -138,6 +148,7 @@ class _ProductImagePlaceholder extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.softPink,
           borderRadius: AppRadius.banner,
+          boxShadow: AppShadow.subtle,
         ),
         child: Icon(
           _iconFor(product.imagePlaceholder),

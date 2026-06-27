@@ -32,7 +32,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.text('Elige una categor\u00EDa para ver los postres disponibles.'),
+      find.text(
+        'Elige una l\u00EDnea de postres y descubre opciones para tu pedido.',
+      ),
       findsOneWidget,
     );
     expect(find.text('Cuchareables'), findsOneWidget);

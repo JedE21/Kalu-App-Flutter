@@ -53,6 +53,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             key: _formKey,
             child: ListView(
               children: [
+                const AppBanner(
+                  title: 'Finaliza tu pedido',
+                  subtitle:
+                      'Revisa el resumen y completa tus datos para preparar el mensaje de WhatsApp.',
+                  icon: Icons.chat_outlined,
+                ),
+                const SizedBox(height: AppSpacing.xl),
                 const SectionTitle(title: 'Resumen del pedido'),
                 const SizedBox(height: AppSpacing.md),
                 _OrderSummary(items: cart.items, total: cart.total),
@@ -211,9 +218,9 @@ class _OrderSummaryItem extends StatelessWidget {
           child: Text(
             '${item.quantity}x',
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: AppColors.primaryPink,
-                  fontWeight: FontWeight.w700,
-                ),
+              color: AppColors.primaryPink,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
         const SizedBox(width: AppSpacing.md),

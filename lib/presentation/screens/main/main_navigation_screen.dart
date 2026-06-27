@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constants/app_colors.dart';
+import '../../../shared/shared.dart';
 import '../cart/cart_screen.dart';
 import '../categories/categories_screen.dart';
 import '../home/home_screen.dart';
@@ -41,43 +41,40 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(_titles[_selectedIndex])),
+    return AppScaffold(
+      title: _titles[_selectedIndex],
+      padding: EdgeInsets.zero,
       body: IndexedStack(index: _selectedIndex, children: _screens),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavBar(
         currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: AppColors.white,
-        selectedItemColor: AppColors.primaryPink,
-        unselectedItemColor: AppColors.textSecondary,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
+          BottomNavItem(
+            icon: AppIcons.home,
+            activeIcon: Icons.home,
             label: 'Inicio',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category_outlined),
-            activeIcon: Icon(Icons.category),
+          BottomNavItem(
+            icon: AppIcons.categories,
+            activeIcon: Icons.category,
             label: 'Categor\u00EDas',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            activeIcon: Icon(Icons.shopping_cart),
+          BottomNavItem(
+            icon: AppIcons.cart,
+            activeIcon: Icons.shopping_cart,
             label: 'Carrito',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt_long_outlined),
-            activeIcon: Icon(Icons.receipt_long),
+          BottomNavItem(
+            icon: AppIcons.orders,
+            activeIcon: Icons.receipt_long,
             label: 'Pedidos',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            activeIcon: Icon(Icons.person),
+          BottomNavItem(
+            icon: AppIcons.profile,
+            activeIcon: Icons.person,
             label: 'Perfil',
           ),
         ],
+        onTap: _onItemTapped,
       ),
     );
   }

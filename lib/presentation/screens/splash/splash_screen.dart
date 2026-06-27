@@ -78,10 +78,24 @@ class _SplashScreenState extends State<SplashScreen> {
                       shape: BoxShape.circle,
                       boxShadow: AppShadow.soft,
                     ),
-                    child: const Icon(
-                      AppIcons.cake,
-                      color: AppColors.primaryPink,
-                      size: 54,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: const [
+                        Icon(
+                          AppIcons.cake,
+                          color: AppColors.primaryPink,
+                          size: 54,
+                        ),
+                        Positioned(
+                          right: 26,
+                          top: 24,
+                          child: Icon(
+                            Icons.favorite,
+                            color: AppColors.blushPink,
+                            size: 18,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: AppSpacing.xl),
@@ -99,6 +113,11 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: AppColors.softBrown,
                     ),
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  Text(
+                    'Postres hechos con cari\u00F1o',
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(height: AppSpacing.xxl),
                   const SizedBox(

@@ -44,12 +44,34 @@ class _FavoritesGrid extends StatelessWidget {
 
     return CustomScrollView(
       slivers: [
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SectionTitle(title: 'Tus postres guardados'),
-              SizedBox(height: AppSpacing.md),
+              AppCard(
+                backgroundColor: AppColors.softPink,
+                child: Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundColor: AppColors.white,
+                      child: Icon(
+                        AppIcons.favorite,
+                        color: AppColors.primaryPink,
+                      ),
+                    ),
+                    const SizedBox(width: AppSpacing.md),
+                    Expanded(
+                      child: Text(
+                        'Tus postres guardados para volver a encontrarlos r\u00E1pido.',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              const SectionTitle(title: 'Favoritos'),
+              const SizedBox(height: AppSpacing.md),
             ],
           ),
         ),

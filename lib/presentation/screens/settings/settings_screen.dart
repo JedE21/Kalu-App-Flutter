@@ -10,14 +10,31 @@ class SettingsScreen extends StatelessWidget {
     return AppScaffold(
       title: 'Configuracion',
       body: ListView(
-        padding: const EdgeInsets.all(AppSpacing.lg),
+        padding: EdgeInsets.zero,
         children: [
-          const SectionTitle(title: 'Opciones'),
-          const SizedBox(height: AppSpacing.xs),
-          Text(
-            'Ajustes informativos preparados para futuras versiones.',
-            style: Theme.of(context).textTheme.bodyMedium,
+          AppCard(
+            backgroundColor: AppColors.softPink,
+            child: Row(
+              children: [
+                const CircleAvatar(
+                  backgroundColor: AppColors.white,
+                  child: Icon(
+                    Icons.settings_outlined,
+                    color: AppColors.primaryPink,
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.md),
+                Expanded(
+                  child: Text(
+                    'Ajustes informativos preparados para futuras versiones.',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+              ],
+            ),
           ),
+          const SizedBox(height: AppSpacing.xl),
+          const SectionTitle(title: 'Opciones'),
           const SizedBox(height: AppSpacing.md),
           SettingsMenuItem(
             title: 'Notificaciones',

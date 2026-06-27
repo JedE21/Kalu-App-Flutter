@@ -193,6 +193,15 @@
 - [x] Navegar al Home al terminar el onboarding.
 - [x] Ejecutar `flutter analyze`.
 
+## Modulo: Pulido Visual General De La V1
+
+- [x] Revisar pantallas principales de V1.
+- [x] Unificar colores, tarjetas, sombras y botones con el Design System.
+- [x] Mejorar espaciados, paddings y jerarquia visual.
+- [x] Revisar posibles overflows en layouts principales.
+- [x] Mantener carrito, busqueda, favoritos y checkout funcionando.
+- [x] Ejecutar `flutter analyze`.
+
 ## Sprint 9: Conexion Con Supabase
 
 - [ ] Revisar `docs/BACKEND_SUPABASE.md`.

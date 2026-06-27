@@ -23,48 +23,62 @@ class AppBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(AppSpacing.xl),
-      decoration: BoxDecoration(
-        color: AppColors.primaryPink,
-        borderRadius: AppRadius.banner,
-        boxShadow: AppShadow.soft,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: textTheme.titleLarge?.copyWith(color: AppColors.white),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final compact = constraints.maxWidth < 340;
+
+        return Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(compact ? AppSpacing.lg : AppSpacing.xl),
+          decoration: BoxDecoration(
+            color: AppColors.primaryPink,
+            borderRadius: AppRadius.banner,
+            boxShadow: AppShadow.soft,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: textTheme.titleLarge?.copyWith(
+                        color: AppColors.white,
+                      ),
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+                    Text(
+                      subtitle,
+                      style: textTheme.bodyLarge?.copyWith(
+                        color: AppColors.white,
+                        height: 1.3,
+                      ),
+                    ),
+                    if (buttonText != null) ...[
+                      const SizedBox(height: AppSpacing.lg),
+                      AppButton(
+                        label: buttonText!,
+                        onPressed: onPressed,
+                        variant: AppButtonVariant.secondary,
+                      ),
+                    ],
+                  ],
                 ),
-                const SizedBox(height: AppSpacing.sm),
-                Text(
-                  subtitle,
-                  style: textTheme.bodyLarge?.copyWith(color: AppColors.white),
+              ),
+              if (!compact) ...[
+                const SizedBox(width: AppSpacing.lg),
+                CircleAvatar(
+                  radius: 34,
+                  backgroundColor: AppColors.blushPink,
+                  child: Icon(icon, color: AppColors.primaryPink, size: 34),
                 ),
-                if (buttonText != null) ...[
-                  const SizedBox(height: AppSpacing.lg),
-                  AppButton(
-                    label: buttonText!,
-                    onPressed: onPressed,
-                    variant: AppButtonVariant.secondary,
-                  ),
-                ],
               ],
-            ),
+            ],
           ),
-          const SizedBox(width: AppSpacing.lg),
-          CircleAvatar(
-            radius: 34,
-            backgroundColor: AppColors.blushPink,
-            child: Icon(icon, color: AppColors.primaryPink, size: 34),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
