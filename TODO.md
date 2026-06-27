@@ -158,6 +158,20 @@
 - [x] Preparar accion para promociones generales.
 - [x] Ejecutar `flutter analyze`.
 
+## Modulo: Perfil Basico Y Contacto
+
+- [x] Mejorar `ProfileScreen`.
+- [x] Crear `ContactScreen`.
+- [x] Agregar accesos a Mis pedidos, Favoritos, Promociones, Contacto y Configuracion basica.
+- [x] Mostrar bienvenida en Perfil.
+- [x] Mostrar datos de contacto de Kalu.
+- [x] Mostrar WhatsApp, Instagram, Facebook y TikTok.
+- [x] Mostrar zona de atencion y horario referencial.
+- [x] Crear `ProfileMenuItem`.
+- [x] Crear `ContactInfoCard`.
+- [x] Crear `SocialButton`.
+- [x] Ejecutar `flutter analyze`.
+
 ## Sprint 9: Conexion Con Supabase
 
 - [ ] Revisar `docs/BACKEND_SUPABASE.md`.

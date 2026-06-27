@@ -38,6 +38,9 @@ Componentes actuales o esperados dentro de la app:
 - `AppError`
 - `BottomNavBar`
 - `AppScaffold`
+- `ProfileMenuItem`
+- `ContactInfoCard`
+- `SocialButton`
 
 ## AppButton
 
@@ -835,6 +838,110 @@ Usarse como estructura base de pantallas para mantener consistencia de fondo, pa
 
 Usar `AppScaffold` como base para la pantalla de productos por categoría.
 
+## ProfileMenuItem
+
+### Nombre Del Componente
+
+`ProfileMenuItem`
+
+### Propósito
+
+Mostrar accesos rápidos dentro de Perfil con icono, título, descripción y navegación.
+
+### Dónde Se Usa
+
+- Perfil.
+- Configuración básica futura.
+
+### Elementos Visuales
+
+- Tarjeta blanca.
+- Icono sobre fondo rosado suave.
+- Título y texto secundario.
+- Flecha de navegación.
+
+### Propiedades Esperadas
+
+- `title`
+- `subtitle`
+- `icon`
+- `onTap`
+
+### Reglas De Diseño
+
+- Mantener textos breves.
+- Usar iconos suaves.
+- No mezclar acciones complejas dentro del item.
+
+## ContactInfoCard
+
+### Nombre Del Componente
+
+`ContactInfoCard`
+
+### Propósito
+
+Mostrar datos de contacto del negocio con una estructura consistente y fácil de leer.
+
+### Dónde Se Usa
+
+- Contacto.
+- Perfil, si luego se agrega información resumida.
+
+### Elementos Visuales
+
+- Tarjeta blanca.
+- Icono destacado.
+- Título.
+- Valor o descripción.
+
+### Propiedades Esperadas
+
+- `title`
+- `value`
+- `icon`
+- `onTap`
+
+### Reglas De Diseño
+
+- Mostrar un dato por tarjeta.
+- Mantener valores claros.
+- Usar `onTap` solo cuando haya acción preparada.
+
+## SocialButton
+
+### Nombre Del Componente
+
+`SocialButton`
+
+### Propósito
+
+Mostrar accesos a redes sociales o canales de contacto con botones pequeños y consistentes.
+
+### Dónde Se Usa
+
+- Contacto.
+- Perfil, si se agregan accesos sociales directos.
+
+### Elementos Visuales
+
+- Botón outline.
+- Icono.
+- Texto corto.
+- Bordes redondeados.
+
+### Propiedades Esperadas
+
+- `label`
+- `icon`
+- `onPressed`
+
+### Reglas De Diseño
+
+- Usar nombres cortos de canal.
+- Mantener tamaño táctil cómodo.
+- No usar enlaces reales sin datos confirmados.
+
 ## Componentes Futuros
 
 Componentes planeados:
@@ -844,7 +951,6 @@ Componentes planeados:
 - `CheckoutSummaryCard`: resumen visual del pedido en checkout.
 - `WhatsAppOrderButton`: botón especializado para enviar pedido por WhatsApp.
 - `ProductImageGallery`: galería para fotos reales de productos.
-- `ProfileMenuItem`: item reutilizable para opciones del perfil.
 
 Estos componentes deben documentarse aquí cuando se creen.
 
