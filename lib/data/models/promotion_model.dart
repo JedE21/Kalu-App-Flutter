@@ -5,6 +5,9 @@ class PromotionModel {
     required this.subtitle,
     required this.productIds,
     required this.badgeText,
+    required this.imagePlaceholder,
+    this.price,
+    this.oldPrice,
     this.isActive = true,
   });
 
@@ -13,6 +16,9 @@ class PromotionModel {
   final String subtitle;
   final List<String> productIds;
   final String badgeText;
+  final String imagePlaceholder;
+  final double? price;
+  final double? oldPrice;
   final bool isActive;
 
   PromotionModel copyWith({
@@ -21,6 +27,9 @@ class PromotionModel {
     String? subtitle,
     List<String>? productIds,
     String? badgeText,
+    String? imagePlaceholder,
+    double? price,
+    double? oldPrice,
     bool? isActive,
   }) {
     return PromotionModel(
@@ -29,6 +38,9 @@ class PromotionModel {
       subtitle: subtitle ?? this.subtitle,
       productIds: productIds ?? this.productIds,
       badgeText: badgeText ?? this.badgeText,
+      imagePlaceholder: imagePlaceholder ?? this.imagePlaceholder,
+      price: price ?? this.price,
+      oldPrice: oldPrice ?? this.oldPrice,
       isActive: isActive ?? this.isActive,
     );
   }
@@ -40,6 +52,9 @@ class PromotionModel {
       subtitle: map['subtitle'] as String,
       productIds: List<String>.from(map['productIds'] as List),
       badgeText: map['badgeText'] as String,
+      imagePlaceholder: map['imagePlaceholder'] as String,
+      price: (map['price'] as num?)?.toDouble(),
+      oldPrice: (map['oldPrice'] as num?)?.toDouble(),
       isActive: map['isActive'] as bool? ?? true,
     );
   }
@@ -51,6 +66,9 @@ class PromotionModel {
       'subtitle': subtitle,
       'productIds': productIds,
       'badgeText': badgeText,
+      'imagePlaceholder': imagePlaceholder,
+      'price': price,
+      'oldPrice': oldPrice,
       'isActive': isActive,
     };
   }

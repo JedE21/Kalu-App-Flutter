@@ -144,6 +144,20 @@
 - [x] Abrir `ProductDetailScreen` desde favoritos.
 - [x] Ejecutar `flutter analyze`.
 
+## Modulo: Promociones
+
+- [x] Crear `PromotionsScreen`.
+- [x] Conectar promociones desde Home.
+- [x] Conectar banner promocional.
+- [x] Conectar categoria Promociones.
+- [x] Reutilizar `PromotionModel`.
+- [x] Actualizar datos mock de promociones.
+- [x] Mostrar promociones con tarjetas visuales.
+- [x] Mostrar titulo, descripcion, precio, estado e imagen temporal.
+- [x] Abrir detalle de producto cuando aplique.
+- [x] Preparar accion para promociones generales.
+- [x] Ejecutar `flutter analyze`.
+
 ## Sprint 9: Conexion Con Supabase
 
 - [ ] Revisar `docs/BACKEND_SUPABASE.md`.

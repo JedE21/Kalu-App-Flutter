@@ -5,6 +5,7 @@ import '../../../data/models/models.dart';
 import '../../../data/services/services.dart';
 import '../../../shared/shared.dart';
 import '../products/product_detail_screen.dart';
+import '../promotions/promotions_screen.dart';
 import '../search/search_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -44,19 +45,26 @@ class HomeScreen extends StatelessWidget {
               title: 'Promoci\u00F3n del d\u00EDa',
               subtitle: 'Cuchareables desde S/ 7.00',
               buttonText: 'Ver ofertas',
-              onPressed: () {},
+              onPressed: () => _openPromotions(context),
               icon: AppIcons.dessert,
             ),
             const SizedBox(height: AppSpacing.xl),
             const SectionTitle(title: 'Categor\u00EDas'),
             const SizedBox(height: AppSpacing.md),
-            const _CategoryCarousel(categories: _categories),
+            _CategoryCarousel(
+              categories: _categories,
+              onPromotionTap: () => _openPromotions(context),
+            ),
             const SizedBox(height: AppSpacing.xl),
             const SectionTitle(title: 'M\u00E1s vendidos'),
             const SizedBox(height: AppSpacing.md),
             _ProductGrid(products: mockBestSellerProducts),
             const SizedBox(height: AppSpacing.xl),
-            const SectionTitle(title: 'Promociones'),
+            SectionTitle(
+              title: 'Promociones',
+              actionText: 'Ver todo',
+              onActionTap: () => _openPromotions(context),
+            ),
             const SizedBox(height: AppSpacing.md),
             _ProductGrid(products: mockPromotionProducts),
           ],
@@ -69,6 +77,12 @@ class HomeScreen extends StatelessWidget {
     Navigator.of(
       context,
     ).push(MaterialPageRoute<void>(builder: (_) => const SearchScreen()));
+  }
+
+  void _openPromotions(BuildContext context) {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => const PromotionsScreen()));
   }
 }
 
@@ -94,9 +108,13 @@ class _Greeting extends StatelessWidget {
 }
 
 class _CategoryCarousel extends StatelessWidget {
-  const _CategoryCarousel({required this.categories});
+  const _CategoryCarousel({
+    required this.categories,
+    required this.onPromotionTap,
+  });
 
   final List<String> categories;
+  final VoidCallback onPromotionTap;
 
   @override
   Widget build(BuildContext context) {
@@ -107,10 +125,12 @@ class _CategoryCarousel extends StatelessWidget {
         itemCount: categories.length,
         separatorBuilder: (_, _) => const SizedBox(width: AppSpacing.sm),
         itemBuilder: (context, index) {
+          final category = categories[index];
+
           return CategoryChip(
-            label: categories[index],
+            label: category,
             selected: index == 0,
-            onTap: () {},
+            onTap: category == 'Promociones' ? onPromotionTap : () {},
           );
         },
       ),

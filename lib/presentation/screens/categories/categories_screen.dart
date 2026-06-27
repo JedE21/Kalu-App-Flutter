@@ -4,6 +4,7 @@ import '../../../data/mock/mock_data.dart';
 import '../../../data/models/models.dart';
 import '../../../shared/shared.dart';
 import '../products/products_by_category_screen.dart';
+import '../promotions/promotions_screen.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -34,6 +35,13 @@ class CategoriesScreen extends StatelessWidget {
   }
 
   void _openCategory(BuildContext context, CategoryModel category) {
+    if (category.id == 'promociones') {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute<void>(builder: (_) => const PromotionsScreen()));
+      return;
+    }
+
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => ProductsByCategoryScreen(category: category),
