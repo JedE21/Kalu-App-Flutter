@@ -9,6 +9,18 @@ void main() {
   ) async {
     await tester.pumpWidget(const KaluApp());
 
+    expect(find.text('Kal\u00FA'), findsOneWidget);
+    expect(find.text('Pasteler\u00EDa Casera'), findsOneWidget);
+
+    await tester.pump(const Duration(milliseconds: 1900));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Postres caseros en un solo lugar'), findsOneWidget);
+    expect(find.text('Omitir'), findsOneWidget);
+
+    await tester.tap(find.text('Omitir'));
+    await tester.pumpAndSettle();
+
     expect(
       find.text('Hola, \u00BFqu\u00E9 postre se te antoja hoy?'),
       findsOneWidget,
@@ -100,9 +112,6 @@ void main() {
     await tester.tap(find.text('Perfil'));
     await tester.pumpAndSettle();
 
-    expect(
-      find.text('La informaci\u00F3n del cliente se agregar\u00E1 luego.'),
-      findsOneWidget,
-    );
+    expect(find.text('Hola, bienvenido a Kal\u00FA'), findsOneWidget);
   });
 }

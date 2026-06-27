@@ -26,6 +26,9 @@ El flujo debe sentirse simple, comercial y directo: descubrir, elegir, revisar, 
 Splash
    |
    v
+Onboarding
+   |
+   v
 Home
    |
    v
@@ -74,6 +77,29 @@ Mostrar la primera entrada visual de Kalu App y preparar el paso hacia la experi
 ### Accion Automatica
 
 Validar el estado inicial necesario y avanzar automaticamente.
+
+### Siguiente Pantalla
+
+Onboarding o Home, segun el flujo inicial definido para la V1.
+
+## Pantalla Onboarding
+
+### Proposito
+
+Presentar Kalu App al usuario con una experiencia inicial breve, dulce y clara.
+
+### Elementos Visuales
+
+- Tres pantallas informativas.
+- Iconos o placeholders simples.
+- Indicadores de pagina.
+- Botones Siguiente, Omitir y Comenzar.
+
+### Acciones
+
+- Avanzar entre pantallas.
+- Omitir onboarding.
+- Comenzar y entrar al Home.
 
 ### Siguiente Pantalla
 
@@ -314,7 +340,8 @@ Inicio
 
 | Pantalla | Accion principal | Pantalla destino |
 | --- | --- | --- |
-| Splash | Avanzar automaticamente | Home |
+| Splash | Avanzar automaticamente | Onboarding / Home |
+| Onboarding | Presentar la app y comenzar | Home |
 | Home | Descubrir y elegir producto | Detalle de producto |
 | Home | Buscar producto | Buscar |
 | Home | Abrir categoria | Productos por categoria |

@@ -5,6 +5,7 @@ import '../contact/contact_screen.dart';
 import '../favorites/favorites_screen.dart';
 import '../orders/orders_screen.dart';
 import '../promotions/promotions_screen.dart';
+import '../settings/settings_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -76,9 +77,9 @@ class ProfileScreen extends StatelessWidget {
         const SizedBox(height: AppSpacing.md),
         ProfileMenuItem(
           title: 'Configuraci\u00F3n b\u00E1sica',
-          subtitle: 'Opciones simples de la app se agregar\u00E1n luego.',
+          subtitle: 'Opciones informativas y datos de la app.',
           icon: Icons.settings_outlined,
-          onTap: () => _showPreparedAction(context),
+          onTap: () => _openSettings(context),
         ),
       ],
     );
@@ -108,15 +109,10 @@ class ProfileScreen extends StatelessWidget {
     ).push(MaterialPageRoute<void>(builder: (_) => const ContactScreen()));
   }
 
-  void _showPreparedAction(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text(
-          'Configuraci\u00F3n b\u00E1sica quedar\u00E1 preparada para una mejora futura.',
-        ),
-        behavior: SnackBarBehavior.floating,
-      ),
-    );
+  void _openSettings(BuildContext context) {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => const SettingsScreen()));
   }
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/theme/app_theme.dart';
-import 'presentation/screens/main/main_navigation_screen.dart';
+import 'presentation/screens/splash/splash_screen.dart';
 
 void main() {
   runApp(const KaluApp());
@@ -16,7 +16,7 @@ class KaluApp extends StatelessWidget {
       title: 'Kal\u00FA App',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const MainNavigationScreen(),
+      home: const SplashScreen(),
     );
   }
 }

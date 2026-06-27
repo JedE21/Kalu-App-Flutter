@@ -41,6 +41,8 @@ Componentes actuales o esperados dentro de la app:
 - `ProfileMenuItem`
 - `ContactInfoCard`
 - `SocialButton`
+- `SettingsMenuItem`
+- `InfoSectionCard`
 
 ## AppButton
 
@@ -941,6 +943,75 @@ Mostrar accesos a redes sociales o canales de contacto con botones pequeños y c
 - Usar nombres cortos de canal.
 - Mantener tamaño táctil cómodo.
 - No usar enlaces reales sin datos confirmados.
+
+## SettingsMenuItem
+
+### Nombre Del Componente
+
+`SettingsMenuItem`
+
+### Proposito
+
+Mostrar opciones de configuracion con icono, titulo, descripcion y accion opcional.
+
+### Donde Se Usa
+
+- Configuracion basica.
+
+### Elementos Visuales
+
+- Tarjeta blanca.
+- Icono sobre fondo rosado suave.
+- Titulo y texto secundario.
+- Flecha o contenido final opcional.
+
+### Propiedades Esperadas
+
+- `title`
+- `subtitle`
+- `icon`
+- `trailing`
+- `onTap`
+
+### Reglas De Diseno
+
+- Mantener opciones informativas en V1.
+- No activar configuraciones reales hasta la fase definida.
+- Usar textos cortos y claros.
+
+## InfoSectionCard
+
+### Nombre Del Componente
+
+`InfoSectionCard`
+
+### Proposito
+
+Mostrar informacion agrupada en pares de etiqueta y valor dentro de una tarjeta reutilizable.
+
+### Donde Se Usa
+
+- Configuracion basica.
+- Secciones informativas futuras.
+
+### Elementos Visuales
+
+- Tarjeta blanca.
+- Titulo.
+- Icono opcional.
+- Filas con etiqueta y valor.
+
+### Propiedades Esperadas
+
+- `title`
+- `items`
+- `icon`
+
+### Reglas De Diseno
+
+- Usar para informacion de solo lectura.
+- Mantener valores breves para evitar sobrecarga visual.
+- No mezclar acciones dentro de esta tarjeta.
 
 ## Componentes Futuros
 

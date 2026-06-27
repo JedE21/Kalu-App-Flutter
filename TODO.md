@@ -172,6 +172,27 @@
 - [x] Crear `SocialButton`.
 - [x] Ejecutar `flutter analyze`.
 
+## Modulo: Configuracion Basica
+
+- [x] Crear `SettingsScreen`.
+- [x] Conectar `SettingsScreen` desde Perfil.
+- [x] Mostrar opciones informativas de configuracion.
+- [x] Mostrar seccion Acerca de Kalu.
+- [x] Crear `SettingsMenuItem`.
+- [x] Crear `InfoSectionCard`.
+- [x] Ejecutar `flutter analyze`.
+
+## Modulo: Onboarding Y Splash Mejorado
+
+- [x] Mejorar `SplashScreen`.
+- [x] Crear `OnboardingScreen`.
+- [x] Mostrar nombre Kalu y texto Pasteleria Casera en Splash.
+- [x] Agregar transicion simple sin paquetes externos.
+- [x] Crear onboarding de 3 pantallas.
+- [x] Agregar botones Siguiente, Omitir y Comenzar.
+- [x] Navegar al Home al terminar el onboarding.
+- [x] Ejecutar `flutter analyze`.
+
 ## Sprint 9: Conexion Con Supabase
 
 - [ ] Revisar `docs/BACKEND_SUPABASE.md`.
