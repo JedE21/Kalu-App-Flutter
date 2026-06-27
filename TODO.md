@@ -131,6 +131,19 @@
 - [x] Mostrar estado vacio sin resultados.
 - [x] Ejecutar `flutter analyze`.
 
+## Modulo: Favoritos Locales
+
+- [x] Crear `FavoriteButton`.
+- [x] Crear controlador local de favoritos en memoria.
+- [x] Permitir marcar y desmarcar favoritos desde `ProductCard`.
+- [x] Permitir marcar y desmarcar favoritos desde `ProductDetailScreen`.
+- [x] Crear `FavoritesScreen`.
+- [x] Mostrar favoritos con `ProductCard`.
+- [x] Mostrar estado vacio de favoritos.
+- [x] Permitir quitar productos de favoritos.
+- [x] Abrir `ProductDetailScreen` desde favoritos.
+- [x] Ejecutar `flutter analyze`.
+
 ## Sprint 9: Conexion Con Supabase
 
 - [ ] Revisar `docs/BACKEND_SUPABASE.md`.

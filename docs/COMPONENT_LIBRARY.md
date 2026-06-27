@@ -28,6 +28,7 @@ Componentes actuales o esperados dentro de la app:
 - `AppSearchBar`
 - `AppBanner`
 - `ProductCard`
+- `FavoriteButton`
 - `CategoryChip`
 - `PriceWidget`
 - `QuantitySelector`
@@ -343,6 +344,8 @@ Mostrar productos en listados comerciales de forma compacta, visual y accionable
 - `icon`
 - `onTap`
 - `onAddTap`
+- `isFavorite`
+- `onFavoriteTap`
 - `isAvailable`
 
 ### Reglas De Diseño
@@ -362,6 +365,52 @@ Mostrar productos en listados comerciales de forma compacta, visual y accionable
 ### Ejemplo Conceptual
 
 Usar `ProductCard` en "Más vendidos" y en listados filtrados por categoría.
+
+## FavoriteButton
+
+### Nombre Del Componente
+
+`FavoriteButton`
+
+### Propósito
+
+Permitir marcar o quitar productos favoritos de forma local y consistente en tarjetas, detalle y listas de favoritos.
+
+### Dónde Se Usa
+
+- `ProductCard`.
+- Detalle de producto.
+- Favoritos.
+
+### Elementos Visuales
+
+- Icono de corazón.
+- Estado activo en rosado principal.
+- Estado inactivo en gris suave.
+- Superficie circular clara.
+
+### Propiedades Esperadas
+
+- `isFavorite`
+- `onPressed`
+- `tooltip`
+- `size`
+
+### Reglas De Diseño
+
+- Usar corazón lleno para favorito activo.
+- Usar corazón outline para favorito inactivo.
+- Mantener tamaño táctil cómodo.
+- No reemplazar el botón principal de compra.
+
+### Variantes
+
+- Botón sobre tarjeta de producto.
+- Acción en AppBar del detalle.
+
+### Ejemplo Conceptual
+
+Usar `FavoriteButton` sobre la imagen de `ProductCard` y como acción superior en `ProductDetailScreen`.
 
 ## CategoryChip
 
@@ -790,7 +839,6 @@ Usar `AppScaffold` como base para la pantalla de productos por categoría.
 
 Componentes planeados:
 
-- `FavoriteButton`: botón para marcar productos favoritos.
 - `PromotionBadge`: etiqueta para descuentos o campañas.
 - `OrderStatusChip`: chip para estados de pedido.
 - `CheckoutSummaryCard`: resumen visual del pedido en checkout.

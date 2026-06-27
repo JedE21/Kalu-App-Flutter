@@ -19,9 +19,21 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final product = widget.product;
+    final favorites = FavoriteController.instance;
 
     return AppScaffold(
       title: 'Detalle',
+      actions: [
+        AnimatedBuilder(
+          animation: favorites,
+          builder: (context, _) {
+            return FavoriteButton(
+              isFavorite: favorites.isFavorite(product.id),
+              onPressed: () => favorites.toggleProduct(product),
+            );
+          },
+        ),
+      ],
       body: ListView(
         children: [
           _ProductImagePlaceholder(product: product),

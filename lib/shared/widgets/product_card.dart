@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/theme.dart';
+import 'favorite_button.dart';
 import 'price_widget.dart';
 
 class ProductCard extends StatelessWidget {
@@ -11,8 +12,10 @@ class ProductCard extends StatelessWidget {
     this.oldPrice,
     this.image,
     this.icon = AppIcons.cake,
+    this.isFavorite = false,
     this.onTap,
     this.onAddTap,
+    this.onFavoriteTap,
     super.key,
   });
 
@@ -22,8 +25,10 @@ class ProductCard extends StatelessWidget {
   final num? oldPrice;
   final Widget? image;
   final IconData icon;
+  final bool isFavorite;
   final VoidCallback? onTap;
   final VoidCallback? onAddTap;
+  final VoidCallback? onFavoriteTap;
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +46,30 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: AppColors.softPink,
-                    borderRadius: BorderRadius.circular(AppRadius.md),
-                  ),
-                  child: image ?? Icon(icon, color: AppColors.primaryPink),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: AppColors.softPink,
+                          borderRadius: BorderRadius.circular(AppRadius.md),
+                        ),
+                        child:
+                            image ?? Icon(icon, color: AppColors.primaryPink),
+                      ),
+                    ),
+                    if (onFavoriteTap != null)
+                      Positioned(
+                        top: AppSpacing.sm,
+                        right: AppSpacing.sm,
+                        child: FavoriteButton(
+                          isFavorite: isFavorite,
+                          onPressed: onFavoriteTap,
+                          size: 36,
+                        ),
+                      ),
+                  ],
                 ),
               ),
               const SizedBox(height: AppSpacing.md),

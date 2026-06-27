@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/mock/mock_data.dart';
 import '../../../data/models/models.dart';
+import '../../../data/services/services.dart';
 import '../../../shared/shared.dart';
 import '../products/product_detail_screen.dart';
 
@@ -76,6 +77,8 @@ class _SearchResults extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final favorites = FavoriteController.instance;
+
     if (products.isEmpty) {
       return const AppEmpty(
         title: 'No encontramos productos con ese nombre',
@@ -84,39 +87,46 @@ class _SearchResults extends StatelessWidget {
       );
     }
 
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SectionTitle(title: '${products.length} resultado(s)'),
-              const SizedBox(height: AppSpacing.md),
-            ],
-          ),
-        ),
-        SliverGrid(
-          delegate: SliverChildBuilderDelegate((context, index) {
-            final product = products[index];
+    return AnimatedBuilder(
+      animation: favorites,
+      builder: (context, _) {
+        return CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SectionTitle(title: '${products.length} resultado(s)'),
+                  const SizedBox(height: AppSpacing.md),
+                ],
+              ),
+            ),
+            SliverGrid(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final product = products[index];
 
-            return ProductCard(
-              name: product.name,
-              price: product.price,
-              oldPrice: product.oldPrice,
-              category: product.categoryName,
-              icon: _iconFor(product.imagePlaceholder),
-              onTap: () => _openDetail(context, product),
-              onAddTap: () {},
-            );
-          }, childCount: products.length),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: AppResponsive.productColumns(context),
-            mainAxisSpacing: AppSpacing.md,
-            crossAxisSpacing: AppSpacing.md,
-            childAspectRatio: 0.68,
-          ),
-        ),
-      ],
+                return ProductCard(
+                  name: product.name,
+                  price: product.price,
+                  oldPrice: product.oldPrice,
+                  category: product.categoryName,
+                  icon: _iconFor(product.imagePlaceholder),
+                  isFavorite: favorites.isFavorite(product.id),
+                  onTap: () => _openDetail(context, product),
+                  onAddTap: () {},
+                  onFavoriteTap: () => favorites.toggleProduct(product),
+                );
+              }, childCount: products.length),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: AppResponsive.productColumns(context),
+                mainAxisSpacing: AppSpacing.md,
+                crossAxisSpacing: AppSpacing.md,
+                childAspectRatio: 0.68,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 

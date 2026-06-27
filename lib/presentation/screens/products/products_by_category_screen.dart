@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/mock/mock_data.dart';
 import '../../../data/models/models.dart';
+import '../../../data/services/services.dart';
 import '../../../shared/shared.dart';
 import 'product_detail_screen.dart';
 
@@ -13,6 +14,7 @@ class ProductsByCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final products = _productsForCategory(category);
+    final favorites = FavoriteController.instance;
 
     return AppScaffold(
       title: category.name,
@@ -23,44 +25,51 @@ class ProductsByCategoryScreen extends StatelessWidget {
                   'Pronto agregaremos postres en la categor\u00EDa ${category.name}.',
               icon: AppIcons.empty,
             )
-          : CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SectionTitle(title: category.name),
-                      const SizedBox(height: AppSpacing.sm),
-                      Text(
-                        category.description,
-                        style: Theme.of(context).textTheme.bodyMedium,
+          : AnimatedBuilder(
+              animation: favorites,
+              builder: (context, _) {
+                return CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SectionTitle(title: category.name),
+                          const SizedBox(height: AppSpacing.sm),
+                          Text(
+                            category.description,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          const SizedBox(height: AppSpacing.lg),
+                        ],
                       ),
-                      const SizedBox(height: AppSpacing.lg),
-                    ],
-                  ),
-                ),
-                SliverGrid(
-                  delegate: SliverChildBuilderDelegate((context, index) {
-                    final product = products[index];
+                    ),
+                    SliverGrid(
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        final product = products[index];
 
-                    return ProductCard(
-                      name: product.name,
-                      price: product.price,
-                      oldPrice: product.oldPrice,
-                      category: product.categoryName,
-                      icon: _iconFor(product.imagePlaceholder),
-                      onTap: () => _openDetail(context, product),
-                      onAddTap: () {},
-                    );
-                  }, childCount: products.length),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: AppResponsive.productColumns(context),
-                    mainAxisSpacing: AppSpacing.md,
-                    crossAxisSpacing: AppSpacing.md,
-                    childAspectRatio: 0.68,
-                  ),
-                ),
-              ],
+                        return ProductCard(
+                          name: product.name,
+                          price: product.price,
+                          oldPrice: product.oldPrice,
+                          category: product.categoryName,
+                          icon: _iconFor(product.imagePlaceholder),
+                          isFavorite: favorites.isFavorite(product.id),
+                          onTap: () => _openDetail(context, product),
+                          onAddTap: () {},
+                          onFavoriteTap: () => favorites.toggleProduct(product),
+                        );
+                      }, childCount: products.length),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: AppResponsive.productColumns(context),
+                        mainAxisSpacing: AppSpacing.md,
+                        crossAxisSpacing: AppSpacing.md,
+                        childAspectRatio: 0.68,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
     );
   }

@@ -9,6 +9,7 @@ export 'app_search_bar.dart';
 export 'app_text_field.dart';
 export 'bottom_nav_bar.dart';
 export 'category_chip.dart';
+export 'favorite_button.dart';
 export 'price_widget.dart';
 export 'product_card.dart';
 export 'quantity_selector.dart';

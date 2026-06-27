@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/mock/mock_data.dart';
 import '../../../data/models/models.dart';
+import '../../../data/services/services.dart';
 import '../../../shared/shared.dart';
 import '../products/product_detail_screen.dart';
 import '../search/search_screen.dart';
@@ -124,31 +125,40 @@ class _ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final crossAxisCount = constraints.maxWidth >= 560 ? 3 : 2;
+    final favorites = FavoriteController.instance;
 
-        return GridView.builder(
-          itemCount: products.length,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: crossAxisCount,
-            mainAxisSpacing: AppSpacing.md,
-            crossAxisSpacing: AppSpacing.md,
-            childAspectRatio: 0.68,
-          ),
-          itemBuilder: (context, index) {
-            final product = products[index];
+    return AnimatedBuilder(
+      animation: favorites,
+      builder: (context, _) {
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            final crossAxisCount = constraints.maxWidth >= 560 ? 3 : 2;
 
-            return ProductCard(
-              name: product.name,
-              category: product.categoryName,
-              price: product.price,
-              oldPrice: product.oldPrice,
-              icon: _iconFor(product.imagePlaceholder),
-              onTap: () => _openDetail(context, product),
-              onAddTap: () {},
+            return GridView.builder(
+              itemCount: products.length,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: crossAxisCount,
+                mainAxisSpacing: AppSpacing.md,
+                crossAxisSpacing: AppSpacing.md,
+                childAspectRatio: 0.68,
+              ),
+              itemBuilder: (context, index) {
+                final product = products[index];
+
+                return ProductCard(
+                  name: product.name,
+                  category: product.categoryName,
+                  price: product.price,
+                  oldPrice: product.oldPrice,
+                  icon: _iconFor(product.imagePlaceholder),
+                  isFavorite: favorites.isFavorite(product.id),
+                  onTap: () => _openDetail(context, product),
+                  onAddTap: () {},
+                  onFavoriteTap: () => favorites.toggleProduct(product),
+                );
+              },
             );
           },
         );
