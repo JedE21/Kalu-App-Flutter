@@ -109,15 +109,15 @@
 
 ## Sprint 8: Checkout Por WhatsApp
 
-- [ ] Crear pantalla Checkout.
-- [ ] Solicitar datos basicos del cliente.
-- [ ] Solicitar direccion o referencia.
-- [ ] Permitir observaciones.
-- [ ] Mostrar resumen del pedido.
-- [ ] Generar mensaje para WhatsApp.
-- [ ] Abrir WhatsApp con el pedido preparado.
-- [ ] Mantener V1 simple, sin pagos online y sin Supabase.
-- [ ] Ejecutar `flutter analyze`.
+- [x] Crear pantalla Checkout.
+- [x] Solicitar datos basicos del cliente.
+- [x] Solicitar direccion o referencia.
+- [x] Permitir observaciones.
+- [x] Mostrar resumen del pedido.
+- [x] Generar mensaje para WhatsApp.
+- [x] Preparar enlace y mensaje para WhatsApp.
+- [x] Mantener V1 simple, sin pagos online y sin Supabase.
+- [x] Ejecutar `flutter analyze`.
 
 ## Sprint 9: Conexion Con Supabase
 

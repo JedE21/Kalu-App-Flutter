@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../data/models/models.dart';
 import '../../../data/services/services.dart';
 import '../../../shared/shared.dart';
+import '../checkout/checkout_screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -166,7 +167,13 @@ class _CartSummary extends StatelessWidget {
             label: 'Continuar pedido',
             icon: Icons.arrow_forward,
             expand: true,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const CheckoutScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
