@@ -119,6 +119,18 @@
 - [x] Mantener V1 simple, sin pagos online y sin Supabase.
 - [x] Ejecutar `flutter analyze`.
 
+## Modulo: Buscar Productos
+
+- [x] Crear `SearchScreen`.
+- [x] Conectar buscador visual del Home.
+- [x] Mostrar campo de busqueda superior.
+- [x] Buscar por nombre, categoria y descripcion.
+- [x] Mostrar resultados con `ProductCard`.
+- [x] Abrir `ProductDetailScreen` desde resultados.
+- [x] Mostrar estado inicial.
+- [x] Mostrar estado vacio sin resultados.
+- [x] Ejecutar `flutter analyze`.
+
 ## Sprint 9: Conexion Con Supabase
 
 - [ ] Revisar `docs/BACKEND_SUPABASE.md`.

@@ -4,6 +4,7 @@ import '../../../data/mock/mock_data.dart';
 import '../../../data/models/models.dart';
 import '../../../shared/shared.dart';
 import '../products/product_detail_screen.dart';
+import '../search/search_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -32,9 +33,10 @@ class HomeScreen extends StatelessWidget {
           children: [
             const _Greeting(),
             const SizedBox(height: AppSpacing.lg),
-            const AppSearchBar(
+            AppSearchBar(
               hintText: 'Buscar tortas, cuchareables, pies...',
               readOnly: true,
+              onTap: () => _openSearch(context),
             ),
             const SizedBox(height: AppSpacing.lg),
             AppBanner(
@@ -60,6 +62,12 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _openSearch(BuildContext context) {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => const SearchScreen()));
   }
 }
 
